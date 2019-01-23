@@ -1,4 +1,4 @@
 package org.aja.randomcalcul.dal;
 
-public class DAO {
+public class DAO <T,ID> implements IDAO<T, ID> {
 }
