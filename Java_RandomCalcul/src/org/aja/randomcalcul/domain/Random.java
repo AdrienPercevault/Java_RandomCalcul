@@ -5,16 +5,15 @@ import java.util.Scanner;
 public class Random {
 
     private static Scanner sc = new Scanner(System.in);
-    final int nb_questions=10;
-    int score =0;
-    int result;
-    int nbr1=(int)(Math.random()*11);
-    int nbr2=(int)(Math.random()*11);
-    int calcul=(int)(Math.random()*4);
-    int reponse;
+    private final int nb_questions=10;
+    private int score =0;
+    private int result;
+    private int nbr1 = (int)(Math.random()*11);
+    private int nbr2 = (int)(Math.random()*11);
+    private int calcul = (int)(Math.random()*4);
+    private int reponse;
 
-    public void RandomFacil(){
-
+    public void RandomFacile(){
         for(int i=0;i<nb_questions;i++){
             switch (calcul) {
                 case 1:
@@ -65,14 +64,12 @@ public class Random {
                     break;
 
                 default:
-
                     break;
             }
         }
     }
 
     public void RandomMoyen() {
-
         for (int i = 0; i < nb_questions; i++) {
             switch (calcul) {
                 case 1:
@@ -123,15 +120,12 @@ public class Random {
                     break;
 
                 default:
-
                     break;
             }
         }
-
     }
 
-    public void RandomDificil(){
-
+    public void RandomDificile(){
         for (int i = 0; i < nb_questions; i++) {
             switch (calcul) {
                 case 1:
@@ -182,13 +176,11 @@ public class Random {
                     break;
 
                 default:
-
                     break;
             }
         }
-
-
     }
+
     public int getNb_questions() {
         return nb_questions;
     }
@@ -224,6 +216,7 @@ public class Random {
     public void setNbr2(int nbr2) {
         this.nbr2 = nbr2;
     }
+
     public int getCalcul() {
         return calcul;
     }

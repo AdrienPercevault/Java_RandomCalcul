@@ -25,7 +25,6 @@ public class app {
             System.out.println( "* 1 : Niveau Facile                           *" );
             System.out.println( "* 2 : Niveau Moyen                            *" );
             System.out.println( "* 3 : Niveau Difficile                        *" );
-            System.out.println( "*                                             *" );
             System.out.println( "***********************************************" );
             System.out.print( "*   Votre choix : " );
             try {

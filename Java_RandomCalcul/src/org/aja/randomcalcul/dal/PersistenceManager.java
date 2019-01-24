@@ -11,6 +11,7 @@ public class PersistenceManager {
     private static final String DB_PWD = "";
 
     private static Connection connection;
+
     private PersistenceManager() {}
 
     public static Connection getConnection() throws SQLException {
