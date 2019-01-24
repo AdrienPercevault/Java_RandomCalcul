@@ -4,10 +4,16 @@ import java.util.Scanner;
 
 public class Random {
 
+    private static Scanner sc = new Scanner(System.in);
+    final int nb_questions=10;
+    int score =0;
+    int result;
+    int nbr1=(int)(Math.random()*11);
+    int nbr2=(int)(Math.random()*11);
+    int calcul=(int)(Math.random()*4);
+    int reponse;
+
     public void RandomFacil(){
-        final int nb_questions=10;
-        int score =0,result,nbr1=(int)(Math.random()*11),nbr2=(int)(Math.random()*11),calcul=(int)(Math.random()*4),reponse;
-        Scanner sc = new Scanner(System.in);
 
         for(int i=0;i<nb_questions;i++){
             switch (calcul) {
@@ -66,9 +72,6 @@ public class Random {
     }
 
     public void RandomMoyen() {
-        final int nb_questions = 10;
-        int score = 0, result, nbr1 = (int) (Math.random() * 11), nbr2 = (int) (Math.random() * 11), calcul = (int) (Math.random() * 4), reponse;
-        Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < nb_questions; i++) {
             switch (calcul) {
@@ -128,9 +131,6 @@ public class Random {
     }
 
     public void RandomDificil(){
-        final int nb_questions=10;
-        int score = 0,result,nbr1=(int)(Math.random()*11),nbr2=(int)(Math.random()*11),calcul=(int)(Math.random()*4),reponse;
-        Scanner sc = new Scanner(System.in);
 
         for (int i = 0; i < nb_questions; i++) {
             switch (calcul) {
@@ -189,4 +189,55 @@ public class Random {
 
 
     }
+    public int getNb_questions() {
+        return nb_questions;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getResult() {
+        return result;
+    }
+
+    public void setResult(int result) {
+        this.result = result;
+    }
+
+    public int getNbr1() {
+        return nbr1;
+    }
+
+    public void setNbr1(int nbr1) {
+        this.nbr1 = nbr1;
+    }
+
+    public int getNbr2() {
+        return nbr2;
+    }
+
+    public void setNbr2(int nbr2) {
+        this.nbr2 = nbr2;
+    }
+    public int getCalcul() {
+        return calcul;
+    }
+
+    public void setCalcul(int calcul) {
+        this.calcul = calcul;
+    }
+
+    public int getReponse() {
+        return reponse;
+    }
+
+    public void setReponse(int reponse) {
+        this.reponse = reponse;
+    }
+
 }
