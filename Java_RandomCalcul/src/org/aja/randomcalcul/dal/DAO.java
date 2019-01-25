@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class DAO<T, ID> implements IDAO<T, ID> {
 
-    private static final String P_UNIT = "sega_bank";
+    private static final String P_UNIT = "scorecalcul";
     EntityManagerFactory emf;
     private Class<T> type;
 

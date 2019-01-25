@@ -13,6 +13,9 @@ public class Random {
     private int calcul = (int)(Math.random()*4);
     private int reponse;
 
+    public Random() {
+    }
+
     public void RandomFacile(){
         for(int i=0;i<nb_questions;i++){
             switch (calcul) {
@@ -125,7 +128,7 @@ public class Random {
         }
     }
 
-    public void RandomDificile(){
+    public void RandomDifficile(){
         for (int i = 0; i < nb_questions; i++) {
             switch (calcul) {
                 case 1:
