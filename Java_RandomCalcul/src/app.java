@@ -94,9 +94,8 @@ public class app {
             System.out.println("* 1 : Addition                                *");
             System.out.println("* 2 : Soustraction                            *");
             System.out.println("* 3 : Mutliplication                          *");
-            System.out.println("* 4 : Division                                *");
-            System.out.println("* 5 : Aleatoire                               *");
-            System.out.println("* 6 : Retour au menu principal                *");
+            System.out.println("* 4 : Aleatoire                               *");
+            System.out.println("* 5 : Retour au menu principal                *");
             System.out.println("***********************************************");
             System.out.print("* Votre choix : ");
 
@@ -124,9 +123,6 @@ public class app {
                 displayMultiplicationGameMenu();
                 break;
             case 4:
-                displayDivisionGameMenu();
-                break;
-            case 5:
                 displayRandomGameMenu();
                 break;
             default:
@@ -160,14 +156,6 @@ public class app {
         System.out.println( "*********** Calcul : multiplication ***********" );
         System.out.println( "***********************************************" );
         random.randomMultiplication();
-    }
-
-    // DIVISION GAME
-    public static void displayDivisionGameMenu() {
-        System.out.println( "***********************************************" );
-        System.out.println( "************** Calcul : division **************" );
-        System.out.println( "***********************************************" );
-        random.randomDivision();
     }
 
     // Random GAME
