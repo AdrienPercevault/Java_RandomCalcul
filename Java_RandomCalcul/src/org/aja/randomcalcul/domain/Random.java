@@ -10,122 +10,70 @@ public class Random {
     private int result;
     private int nbr1 = (int)(Math.random()*11);
     private int nbr2 = (int)(Math.random()*11);
-    private int calcul = (int)(Math.random()*4);
+    private int calcul = (int)((Math.random()*4)+1);
     private int reponse;
 
-    public void RandomFacile(){
+    public void randomAddition(){
         for(int i=0;i<nb_questions;i++){
-            switch (calcul) {
-                case 1:
-                    System.out.println(nbr1 + nbr2);
-                    result = nbr1 + nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                case 2:
-                    System.out.println(nbr1 - nbr2);
-                    result = nbr1 - nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                case 3:
-                    System.out.println(nbr1 / nbr2);
-                    result = nbr1 / nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                case 4:
-                    System.out.println(nbr1 * nbr2);
-                    result = nbr1 * nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                default:
-                    break;
+            System.out.println(nbr1 + nbr2);
+            result = nbr1 + nbr2;
+            System.out.println("Veuillez saisir votre réponse : ");
+            reponse = sc.nextInt();
+            if (reponse == result) {
+                System.out.println("Bonne réponse");
+                score++;
+            }else {
+                System.out.println("Mauvaise réponse");
             }
         }
     }
 
-    public void RandomMoyen() {
-        for (int i = 0; i < nb_questions; i++) {
-            switch (calcul) {
-                case 1:
-                    System.out.println(nbr1 + nbr2);
-                    result = nbr1 + nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                case 2:
-                    System.out.println(nbr1 - nbr2);
-                    result = nbr1 - nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                case 3:
-                    System.out.println(nbr1 * nbr2);
-                    result = nbr1 * nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                case 4:
-                    System.out.println(nbr1 / nbr2);
-                    result = nbr1 / nbr2;
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                default:
-                    break;
+    public void randomSubstraction(){
+        for(int i=0;i<nb_questions;i++){
+            System.out.println(nbr1 - nbr2);
+            result = nbr1 - nbr2;
+            System.out.println("Veuillez saisir votre réponse : ");
+            reponse = sc.nextInt();
+            if (reponse == result) {
+                System.out.println("Bonne réponse");
+                score++;
+            }else {
+                System.out.println("Mauvaise réponse");
             }
         }
     }
 
-    public void RandomDifficile(){
+    public void randomMultiplication(){
+        for(int i=0;i<nb_questions;i++){
+            System.out.println(nbr1 * nbr2);
+            result = nbr1 * nbr2;
+            System.out.println("Veuillez saisir votre réponse : ");
+            reponse = sc.nextInt();
+            if (reponse == result) {
+                System.out.println("Bonne réponse");
+                score++;
+            }else {
+                System.out.println("Mauvaise réponse");
+            }
+        }
+    }
+
+    public void randomDivision(){
+        for(int i=0;i<nb_questions;i++){
+            System.out.println(nbr1 / nbr2);
+            result = nbr1 / nbr2;
+            System.out.println("Veuillez saisir votre réponse : ");
+            reponse = sc.nextInt();
+            if (reponse == result) {
+                System.out.println("Bonne réponse");
+                score++;
+            }else {
+                System.out.println("Mauvaise réponse");
+            }
+        }
+    }
+
+    public void randomRandom(){
         for (int i = 0; i < nb_questions; i++) {
             switch (calcul) {
                 case 1:
