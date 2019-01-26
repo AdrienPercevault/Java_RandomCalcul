@@ -171,9 +171,7 @@ public class app {
     public static void registration() {
         Account account = new Account();
         System.out.println("***********************************************");
-        System.out.println("********* Ajout d'une nouvelle agence *********");
-        System.out.println("***********************************************");
-        System.out.println("* Création d'un compte :                      *");
+        System.out.println("*************** Créer un compte ***************");
         System.out.println("***********************************************");
 
         System.out.print("* Nom d'utilisateur : ");

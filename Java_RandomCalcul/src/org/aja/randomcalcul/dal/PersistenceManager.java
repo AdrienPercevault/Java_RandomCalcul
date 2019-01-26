@@ -12,7 +12,9 @@ public class PersistenceManager {
 
     private static Connection connection;
 
-    private PersistenceManager() {}
+    private PersistenceManager() {
+
+    }
 
     public static Connection getConnection() throws SQLException {
         if (null == connection || connection.isClosed()) {
