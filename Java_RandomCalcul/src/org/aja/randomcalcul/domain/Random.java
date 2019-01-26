@@ -11,8 +11,8 @@ public class Random {
     private int reponse;
 
     public void randomAddition(){
-         int nbr1 = (int)(Math.random()*11);
-         int nbr2 = (int)(Math.random()*11);
+        int nbr1 = (int)((Math.random()*99)+1);
+        int nbr2 = (int)((Math.random()*99)+1);
         for(int i=0;i<nb_questions;i++){
             System.out.println(nbr1 + " + " + nbr2);
             result = nbr1 + nbr2;
@@ -28,8 +28,8 @@ public class Random {
     }
 
     public void randomSubstraction(){
-        int nbr1 = (int)(Math.random()*11);
-        int nbr2 = (int)(Math.random()*11);
+        int nbr1 = (int)((Math.random()*99)+1);
+        int nbr2 = (int)((Math.random()*99)+1);
         for(int i=0;i<nb_questions;i++){
             System.out.println(nbr1 + " - " + nbr2);
             result = nbr1 - nbr2;
@@ -45,8 +45,8 @@ public class Random {
     }
 
     public void randomMultiplication(){
-        int nbr1 = (int)(Math.random()*11);
-        int nbr2 = (int)(Math.random()*11);
+        int nbr1 = (int)((Math.random()*99)+1);
+        int nbr2 = (int)((Math.random()*99)+1);
         for(int i=0;i<nb_questions;i++){
             System.out.println(nbr1 + " * " + nbr2);
             result = nbr1 * nbr2;
@@ -61,43 +61,16 @@ public class Random {
         } System.out.println("Votre score est de :" + score + " sur 10");
     }
 
-    public void randomDivision(){
-        int nbr1 = (int)(Math.random()*11);
-        int nbr2 = (int)(Math.random()*11);
-        for(int i=0;i<nb_questions;i++){
-            System.out.println(nbr1 + " / " + nbr2);
-            result = nbr1 / nbr2;
-            System.out.println("Veuillez saisir votre réponse : ");
-            reponse = sc.nextInt();
-            if (reponse == result) {
-                System.out.println("Bonne réponse");
-                score++;
-            }else {
-                System.out.println("Mauvaise réponse");
-            }
-        } System.out.println("Votre score est de :" + score + " sur 10");
-    }
-
     public void randomRandom(){
         for (int i = 0; i < nb_questions; i++) {
-            int nbr1 = (int)(Math.random()*11);
-            int nbr2 = (int)(Math.random()*11);
-            int calcul = (int)((Math.random()*4)+1);
+            int nbr1 = (int)((Math.random()*99)+1);
+            int nbr2 = (int)((Math.random()*99)+1);
+            int calcul = (int)((Math.random()*3)+1);
+
             switch (calcul) {
+
                 case 1:
                     System.out.println(nbr1 - nbr2);
-                    result = nbr1 + nbr2;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    reponse = sc.nextInt();
-                    if (reponse == result) {
-                        score++;
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                    }
-                    break;
-
-                case 2:
-                    System.out.println(nbr1 + nbr2);
                     result = nbr1 - nbr2;
                     System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
@@ -109,9 +82,9 @@ public class Random {
                     }
                     break;
 
-                case 3:
-                    System.out.println(nbr1 / nbr2);
-                    result = nbr1 / nbr2;
+                case 2:
+                    System.out.println(nbr1 + " + " + nbr2);
+                    result = nbr1 + nbr2;
                     System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
                     if (reponse == result) {
@@ -122,8 +95,8 @@ public class Random {
                     }
                     break;
 
-                case 4:
-                    System.out.println(nbr1 * nbr2);
+                case 3:
+                    System.out.println(nbr1 + " * " + nbr2);
                     result = nbr1 * nbr2;
                     System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
