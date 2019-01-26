@@ -15,7 +15,20 @@ public class app {
     private static final Scanner sc = new Scanner(System.in);
     private static Random random = new Random();
 
-    public static void displayMainPage() {
+// ***********************
+// ***    Main  menu   ***
+// ***********************
+
+    public static void main( String... args ) {
+        displayMainMenu();
+    }
+
+// ***********************
+// ***  Display  Menu  ***
+// ***********************
+
+    // MAIN MENU
+    public static void displayMainMenu() {
         int response;
         boolean first = true;
         do {
@@ -30,20 +43,23 @@ public class app {
             System.out.println("* Connectez-vous ou inscrivez-vous            *");
             System.out.println("* 1 : Inscription                             *");
             System.out.println("* 2 : Connexion                               *");
-            System.out.println("* 3 : Quitter                                 *");
+            System.out.println("* 3 : Tableau des scores                      *");
+            System.out.println("* 4 : Quitter                                 *");
             System.out.println("***********************************************");
             System.out.print("* Votre choix : ");
 
             try {
                 response = sc.nextInt();
-            } catch (InputMismatchException e) {
+            }
+            catch (InputMismatchException e) {
                 response = -1;
-            } finally {
+            }
+            finally {
                 sc.nextLine();
             }
             first = false;
         }
-        while (1 > response || 3 < response);
+        while (1 > response || 4 < response);
 
         switch (response) {
             case 1:
@@ -52,13 +68,16 @@ public class app {
             case 2:
                 connexion();
                 break;
-
+            case 3:
+                connexion();
+                break;
             default:
                 System.out.println("***********************************************");
-                System.out.println("* Fermeture de l'application... Au revoir !   *");
+                System.out.println("* Fermeture de l'application...               *");
         }
     }
 
+    // DIFFICULTY MENU
     public static void displayDifficultyMenu() {
         int response;
         boolean first = true;
@@ -72,38 +91,96 @@ public class app {
             System.out.println("************ NIVEAUX DE DIFFICULTE ************");
             System.out.println("***********************************************");
             System.out.println("* Veuillez choisir le niveau du jeu :         *");
-            System.out.println("* 1 : Facile                                  *");
-            System.out.println("* 2 : Moyen                                   *");
-            System.out.println("* 3 : Difficile                               *");
-            System.out.println("* 4 : Quitter                                 *");
+            System.out.println("* 1 : Addition                                *");
+            System.out.println("* 2 : Soustraction                            *");
+            System.out.println("* 3 : Mutliplication                          *");
+            System.out.println("* 4 : Division                                *");
+            System.out.println("* 5 : Aleatoire                               *");
+            System.out.println("* 6 : Retour au menu principal                *");
             System.out.println("***********************************************");
             System.out.print("* Votre choix : ");
 
             try {
                 response = sc.nextInt();
-            } catch (InputMismatchException e) {
+            }
+            catch (InputMismatchException e) {
                 response = -1;
-            } finally {
+            }
+            finally {
                 sc.nextLine();
             }
             first = false;
         }
-        while (1 > response || 4 < response);
+        while (1 > response || 6 < response);
 
         switch (response) {
             case 1:
-                random.RandomFacile();
+                displayAdditionGameMenu();
                 break;
             case 2:
-                random.RandomMoyen();
+                displaySubstractionGameMenu();
                 break;
             case 3:
-                random.RandomDifficile();
+                displayMultiplicationGameMenu();
+                break;
+            case 4:
+                displayDivisionGameMenu();
+                break;
+            case 5:
+                displayRandomGameMenu();
+                break;
             default:
-                System.out.println("***********************************************");
-                System.out.println("* Fermeture de l'application... Au revoir !   *");
+                displayMainMenu();
         }
     }
+
+// ***********************
+// *** Game Difficulty ***
+// ***********************
+
+    // ADDITION GAME
+    public static void displayAdditionGameMenu() {
+        System.out.println( "***********************************************" );
+        System.out.println( "************** Calcul : addition **************" );
+        System.out.println( "***********************************************" );
+        random.randomAddition();
+    }
+
+    // SUBSTRACTION GAME
+    public static void displaySubstractionGameMenu() {
+        System.out.println( "***********************************************" );
+        System.out.println( "************ Calcul : soustraction ************" );
+        System.out.println( "***********************************************" );
+        random.randomSubstraction();
+    }
+
+    // MULTIPLICATION GAME
+    public static void displayMultiplicationGameMenu() {
+        System.out.println( "***********************************************" );
+        System.out.println( "*********** Calcul : multiplication ***********" );
+        System.out.println( "***********************************************" );
+        random.randomMultiplication();
+    }
+
+    // DIVISION GAME
+    public static void displayDivisionGameMenu() {
+        System.out.println( "***********************************************" );
+        System.out.println( "************** Calcul : division **************" );
+        System.out.println( "***********************************************" );
+        random.randomDivision();
+    }
+
+    // Random GAME
+    public static void displayRandomGameMenu() {
+        System.out.println( "***********************************************" );
+        System.out.println( "************* Calcul : aléatoires *************" );
+        System.out.println( "***********************************************" );
+        random.randomRandom();
+    }
+
+// ***********************
+// *** Create  Account ***
+// ***********************
 
     public static void registration() {
         Account account = new Account();
@@ -126,6 +203,10 @@ public class app {
             e.printStackTrace();
         }
     }
+
+// ***********************
+// ***     Connect     ***
+// ***********************
 
     public static void connexion() {
         System.out.println("***********************************************");
