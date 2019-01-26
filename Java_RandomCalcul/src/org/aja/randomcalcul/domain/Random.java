@@ -8,14 +8,13 @@ public class Random {
     private final int nb_questions=10;
     private int score =0;
     private int result;
-    private int nbr1 = (int)(Math.random()*11);
-    private int nbr2 = (int)(Math.random()*11);
-    private int calcul = (int)((Math.random()*4)+1);
     private int reponse;
 
     public void randomAddition(){
+         int nbr1 = (int)(Math.random()*11);
+         int nbr2 = (int)(Math.random()*11);
         for(int i=0;i<nb_questions;i++){
-            System.out.println(nbr1 + nbr2);
+            System.out.println(nbr1 + " + " + nbr2);
             result = nbr1 + nbr2;
             System.out.println("Veuillez saisir votre réponse : ");
             reponse = sc.nextInt();
@@ -25,12 +24,14 @@ public class Random {
             }else {
                 System.out.println("Mauvaise réponse");
             }
-        }
+        } System.out.println("Votre score est de :" + score + " sur 10");
     }
 
     public void randomSubstraction(){
+        int nbr1 = (int)(Math.random()*11);
+        int nbr2 = (int)(Math.random()*11);
         for(int i=0;i<nb_questions;i++){
-            System.out.println(nbr1 - nbr2);
+            System.out.println(nbr1 + " - " + nbr2);
             result = nbr1 - nbr2;
             System.out.println("Veuillez saisir votre réponse : ");
             reponse = sc.nextInt();
@@ -40,12 +41,14 @@ public class Random {
             }else {
                 System.out.println("Mauvaise réponse");
             }
-        }
+        } System.out.println("Votre score est de :" + score + " sur 10");
     }
 
     public void randomMultiplication(){
+        int nbr1 = (int)(Math.random()*11);
+        int nbr2 = (int)(Math.random()*11);
         for(int i=0;i<nb_questions;i++){
-            System.out.println(nbr1 * nbr2);
+            System.out.println(nbr1 + " * " + nbr2);
             result = nbr1 * nbr2;
             System.out.println("Veuillez saisir votre réponse : ");
             reponse = sc.nextInt();
@@ -55,12 +58,14 @@ public class Random {
             }else {
                 System.out.println("Mauvaise réponse");
             }
-        }
+        } System.out.println("Votre score est de :" + score + " sur 10");
     }
 
     public void randomDivision(){
+        int nbr1 = (int)(Math.random()*11);
+        int nbr2 = (int)(Math.random()*11);
         for(int i=0;i<nb_questions;i++){
-            System.out.println(nbr1 / nbr2);
+            System.out.println(nbr1 + " / " + nbr2);
             result = nbr1 / nbr2;
             System.out.println("Veuillez saisir votre réponse : ");
             reponse = sc.nextInt();
@@ -70,15 +75,19 @@ public class Random {
             }else {
                 System.out.println("Mauvaise réponse");
             }
-        }
+        } System.out.println("Votre score est de :" + score + " sur 10");
     }
 
     public void randomRandom(){
         for (int i = 0; i < nb_questions; i++) {
+            int nbr1 = (int)(Math.random()*11);
+            int nbr2 = (int)(Math.random()*11);
+            int calcul = (int)((Math.random()*4)+1);
             switch (calcul) {
                 case 1:
                     System.out.println(nbr1 - nbr2);
                     result = nbr1 + nbr2;
+                    System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
                     if (reponse == result) {
                         score++;
@@ -90,6 +99,7 @@ public class Random {
                 case 2:
                     System.out.println(nbr1 + nbr2);
                     result = nbr1 - nbr2;
+                    System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
                     if (reponse == result) {
                         System.out.println("Bonne réponse");
@@ -102,6 +112,7 @@ public class Random {
                 case 3:
                     System.out.println(nbr1 / nbr2);
                     result = nbr1 / nbr2;
+                    System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
                     if (reponse == result) {
                         System.out.println("Bonne réponse");
@@ -114,6 +125,7 @@ public class Random {
                 case 4:
                     System.out.println(nbr1 * nbr2);
                     result = nbr1 * nbr2;
+                    System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
                     if (reponse == result) {
                         System.out.println("Bonne réponse");
@@ -127,6 +139,7 @@ public class Random {
                     break;
             }
         }
+        System.out.println("Votre score est de :" + score + " sur 10");
     }
 
     public int getNb_questions() {
@@ -147,30 +160,6 @@ public class Random {
 
     public void setResult(int result) {
         this.result = result;
-    }
-
-    public int getNbr1() {
-        return nbr1;
-    }
-
-    public void setNbr1(int nbr1) {
-        this.nbr1 = nbr1;
-    }
-
-    public int getNbr2() {
-        return nbr2;
-    }
-
-    public void setNbr2(int nbr2) {
-        this.nbr2 = nbr2;
-    }
-
-    public int getCalcul() {
-        return calcul;
-    }
-
-    public void setCalcul(int calcul) {
-        this.calcul = calcul;
     }
 
     public int getReponse() {
