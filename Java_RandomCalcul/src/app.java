@@ -2,16 +2,14 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import org.aja.randomcalcul.dal.DAOFactory;
 import org.aja.randomcalcul.dal.IDAO;
 import org.aja.randomcalcul.dal.DAO;
 import org.aja.randomcalcul.domain.Account;
 import org.aja.randomcalcul.domain.Random;
-import org.aja.randomcalcul.domain.Score;
 
 public class app {
 
-    private static DAO accountDAO = new DAO<Account, Long>(Account.class);
-    private static DAO scoreDAO = new DAO<Score, Long>(Score.class);
     private static final Scanner sc = new Scanner(System.in);
     private static Random random = new Random();
 
@@ -117,7 +115,7 @@ public class app {
                 displayAdditionGameMenu();
                 break;
             case 2:
-                displaySubstractionGameMenu();
+                displaySubtractionGameMenu();
                 break;
             case 3:
                 displayMultiplicationGameMenu();
@@ -142,12 +140,12 @@ public class app {
         random.randomAddition();
     }
 
-    // SUBSTRACTION GAME
-    public static void displaySubstractionGameMenu() {
+    // SUBTRACTION GAME
+    public static void displaySubtractionGameMenu() {
         System.out.println( "***********************************************" );
         System.out.println( "************ Calcul : soustraction ************" );
         System.out.println( "***********************************************" );
-        random.randomSubstraction();
+        random.randomSubtraction();
     }
 
     // MULTIPLICATION GAME
@@ -175,16 +173,17 @@ public class app {
         System.out.println("***********************************************");
         System.out.println("********* Ajout d'une nouvelle agence *********");
         System.out.println("***********************************************");
-        System.out.println("* Création d'un compte :*");
+        System.out.println("* Création d'un compte :                      *");
+        System.out.println("***********************************************");
 
         System.out.print("* Nom d'utilisateur : ");
         account.setUsername(sc.nextLine());
 
-        System.out.println("* Mot de passe :");
+        System.out.println("* Mot de passe : ");
         account.setPassword(sc.nextLine());
 
         try {
-            IDAO<Account, Long> dao = accountDAO;
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
             dao.create(account);
             displayDifficultyMenu();
         } catch (SQLException e) {
