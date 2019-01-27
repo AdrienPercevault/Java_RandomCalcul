@@ -23,11 +23,12 @@ public class Random {
                 score++;
             }else {
                 System.out.println("Mauvaise réponse");
+                System.out.println("La bonne réponse était : " + result);
             }
         } System.out.println("Votre score est de : " + score + " sur 10");
     }
 
-    public void randomSubstraction(){
+    public void randomSubtraction(){
         for(int i=0;i<nb_questions;i++){
             int nbr1 = (int)((Math.random()*99)+1);
             int nbr2 = (int)((Math.random()*99)+1);
@@ -40,6 +41,7 @@ public class Random {
                 score++;
             }else {
                 System.out.println("Mauvaise réponse");
+                System.out.println("La bonne réponse était : " + result);
             }
         } System.out.println("Votre score est de : " + score + " sur 10");
     }
@@ -57,6 +59,7 @@ public class Random {
                 score++;
             }else {
                 System.out.println("Mauvaise réponse");
+                System.out.println("La bonne réponse était : " + result);
             }
         } System.out.println("Votre score est de : " + score + " sur 10");
     }
@@ -70,7 +73,7 @@ public class Random {
             switch (calcul) {
 
                 case 1:
-                    System.out.println(nbr1 - nbr2);
+                    System.out.println(nbr1 + " - " + nbr2);
                     result = nbr1 - nbr2;
                     System.out.println("Veuillez saisir votre réponse : ");
                     reponse = sc.nextInt();
@@ -79,6 +82,7 @@ public class Random {
                         score++;
                     }else {
                         System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
                     }
                     break;
 
@@ -92,6 +96,7 @@ public class Random {
                         score++;
                     }else {
                         System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
                     }
                     break;
 
@@ -105,6 +110,7 @@ public class Random {
                         score++;
                     }else {
                         System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
                     }
                     break;
 
