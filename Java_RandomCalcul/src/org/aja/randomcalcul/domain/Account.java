@@ -1,12 +1,13 @@
 package org.aja.randomcalcul.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Player")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "DTYPE")
-public class Account {
+public class Account implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +16,13 @@ public class Account {
     protected String username;
     protected String password;
 
-    @ManyToOne
-    @JoinColumn(name = "id_score")
-    protected Score score;
+
+    @Embedded
+    protected Number number;
+
+//    @ManyToOne
+//    @JoinColumn(name = "id_score")
+//    protected Score score;
 
 // ***********************
 // ***   Constructor   ***
@@ -27,19 +32,19 @@ public class Account {
 
     }
 
-    public Account( String username, String password, Score score ) {
+    public Account(String username, String password, Number number) {
         this();
         this.username = username;
         this.password = password;
-        this.score = score;
+        this.number = number;
     }
 
-    public Account( Long id, String username, String password, Score score ) {
+    public Account(Long id, String username, String password, Number number) {
         this();
         this.id = id;
         this.username = username;
         this.password = password;
-        this.score = score;
+        this.number = number;
     }
 
 // ***********************
@@ -51,7 +56,7 @@ public class Account {
         return id;
     }
 
-    public void setId( Long id ) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,13 +78,18 @@ public class Account {
         this.password = password;
     }
 
-    // Score
-    public Score getScore() {
-        return score;
+    public Number getNumber() {
+        return number;
     }
 
-    public void setScore( Score score ) {
-        this.score = score;
+    public void setNumber(Number number) {
+        this.number = number;
     }
+
 }
+
+
+    // Score
+
+
 

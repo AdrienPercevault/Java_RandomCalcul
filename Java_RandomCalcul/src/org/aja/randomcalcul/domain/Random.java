@@ -1,14 +1,29 @@
 package org.aja.randomcalcul.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.ManyToOne;
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Random {
+@Embeddable
+public class Random implements Serializable {
 
     private static Scanner sc = new Scanner(System.in);
     private final int nb_questions=10;
+
+    @Column(length = 2)
     private int score =0;
+
+
+    @ManyToOne
+    protected Number number;
+
     private int result;
     private int reponse;
+
+
+    public Random() {}
 
     public void randomAddition(){
         for(int i=0;i<nb_questions;i++){
@@ -125,7 +140,11 @@ public class Random {
         return nb_questions;
     }
 
-    public int getScore() {
+    public void setNumber(Number score) {
+        this.number = score;
+    }
+
+    public int getNumber() {
         return score;
     }
 

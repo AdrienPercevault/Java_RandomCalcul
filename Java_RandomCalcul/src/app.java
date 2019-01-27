@@ -138,6 +138,8 @@ public class app {
         System.out.println( "************** Calcul : addition **************" );
         System.out.println( "***********************************************" );
         random.randomAddition();
+        Account account = new Account();
+        random.getNumber();
     }
 
     // SUBTRACTION GAME
@@ -162,6 +164,7 @@ public class app {
         System.out.println( "************* Calcul : aléatoires *************" );
         System.out.println( "***********************************************" );
         random.randomRandom();
+
     }
 
 // ***********************
