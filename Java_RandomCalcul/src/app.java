@@ -1,12 +1,18 @@
 import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
+import org.hibernate.Session;
 import org.aja.randomcalcul.dal.DAOFactory;
 import org.aja.randomcalcul.dal.IDAO;
-import org.aja.randomcalcul.dal.DAO;
 import org.aja.randomcalcul.domain.Account;
 import org.aja.randomcalcul.domain.Random;
+import org.hibernate.SessionFactory;
+
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
 
 public class app {
 
@@ -67,7 +73,7 @@ public class app {
                 connexion();
                 break;
             case 3:
-                connexion();
+                tableauScore();
                 break;
             default:
                 System.out.println("***********************************************");
@@ -138,8 +144,8 @@ public class app {
         System.out.println( "************** Calcul : addition **************" );
         System.out.println( "***********************************************" );
         random.randomAddition();
-        Account account = new Account();
-        random.getNumber();
+
+
     }
 
     // SUBTRACTION GAME
@@ -148,6 +154,7 @@ public class app {
         System.out.println( "************ Calcul : soustraction ************" );
         System.out.println( "***********************************************" );
         random.randomSubtraction();
+
     }
 
     // MULTIPLICATION GAME
@@ -200,5 +207,23 @@ public class app {
         System.out.println("***********************************************");
         System.out.println("*************** En cour de dev ****************");
         System.out.println("***********************************************");
+    }
+
+// ***********************
+// ***   Score table   ***
+// ***********************
+
+    public static void tableauScore() {
+        System.out.println("***********************************************");
+        System.out.println("************* Tableau des Scores **************");
+        System.out.println("***********************************************");
+
+        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        Session session;
+        session = sessionFactory.openSession();
+        Query query = session.createQuery("SELECT DISTINCT username, number FROM Player ORDER BY DESC ");
+        List<String> monTableauDesScores = query.list();
+        System.out.println(monTableauDesScores);
+
     }
 }

@@ -17,8 +17,8 @@ public class Account implements Serializable {
     protected String password;
 
 
-    @Embedded
-    protected Number number;
+
+    protected Integer number;
 
 //    @ManyToOne
 //    @JoinColumn(name = "id_score")
@@ -32,14 +32,14 @@ public class Account implements Serializable {
 
     }
 
-    public Account(String username, String password, Number number) {
+    public Account(String username, String password, Integer number) {
         this();
         this.username = username;
         this.password = password;
         this.number = number;
     }
 
-    public Account(Long id, String username, String password, Number number) {
+    public Account(Long id, String username, String password, Integer number) {
         this();
         this.id = id;
         this.username = username;
@@ -78,11 +78,11 @@ public class Account implements Serializable {
         this.password = password;
     }
 
-    public Number getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(Number number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 
