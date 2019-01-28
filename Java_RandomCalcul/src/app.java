@@ -13,7 +13,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-
 public class app {
 
     private static final Scanner sc = new Scanner(System.in);
@@ -98,8 +97,9 @@ public class app {
             System.out.println("* 1 : Addition                                *");
             System.out.println("* 2 : Soustraction                            *");
             System.out.println("* 3 : Mutliplication                          *");
-            System.out.println("* 4 : Aleatoire                               *");
-            System.out.println("* 5 : Retour au menu principal                *");
+            System.out.println("* 4 : Aleatoire facile                        *");
+            System.out.println("* 5 : Aleatoire difficile                     *");
+            System.out.println("* 6 : Retour au menu principal                *");
             System.out.println("***********************************************");
             System.out.print("* Votre choix : ");
 
@@ -127,10 +127,56 @@ public class app {
                 displayMultiplicationGameMenu();
                 break;
             case 4:
-                displayRandomGameMenu();
+                displayEasyRandomGameMenu();
+                break;
+            case 5:
+                displayHardRandomGameMenu();
                 break;
             default:
                 displayMainMenu();
+        }
+    }
+
+    public static void displayReplayMenu() {
+        int response;
+        boolean first = true;
+        do {
+            if (!first) {
+                System.out.println("***********************************************");
+                System.out.println("* Erreur de selection !                       *");
+                System.out.println("***********************************************");
+            }
+            System.out.println("***********************************************");
+            System.out.println("****************** REJOUER ? ******************");
+            System.out.println("***********************************************");
+            System.out.println("* Voulez vous rejouer une nouvelle partie?    *");
+            System.out.println("* 1 : Oui                                     *");
+            System.out.println("* 2 : Non                                     *");
+            System.out.println("***********************************************");
+            System.out.print("* Votre choix : ");
+
+            try {
+                response = sc.nextInt();
+            }
+            catch (InputMismatchException e) {
+                response = -1;
+            }
+            finally {
+                sc.nextLine();
+            }
+            first = false;
+        }
+        while (1 > response || 2 < response);
+
+        switch (response) {
+            case 1:
+                displayDifficultyMenu();
+                break;
+            case 2:
+                displayMainMenu();
+                break;
+            default:
+                break;
         }
     }
 
@@ -144,8 +190,7 @@ public class app {
         System.out.println( "************** Calcul : addition **************" );
         System.out.println( "***********************************************" );
         random.randomAddition();
-
-
+        displayReplayMenu();
     }
 
     // SUBTRACTION GAME
@@ -154,7 +199,7 @@ public class app {
         System.out.println( "************ Calcul : soustraction ************" );
         System.out.println( "***********************************************" );
         random.randomSubtraction();
-
+        displayReplayMenu();
     }
 
     // MULTIPLICATION GAME
@@ -163,15 +208,25 @@ public class app {
         System.out.println( "*********** Calcul : multiplication ***********" );
         System.out.println( "***********************************************" );
         random.randomMultiplication();
+        displayReplayMenu();
     }
 
-    // Random GAME
-    public static void displayRandomGameMenu() {
+    // RANDOM GAME
+    public static void displayEasyRandomGameMenu() {
         System.out.println( "***********************************************" );
-        System.out.println( "************* Calcul : aléatoires *************" );
+        System.out.println( "********** Calcul : aléatoires facile *********" );
         System.out.println( "***********************************************" );
-        random.randomRandom();
+        random.randomRandomEasy();
+        displayReplayMenu();
+    }
 
+    // RANDOM GAME
+    public static void displayHardRandomGameMenu() {
+        System.out.println( "***********************************************" );
+        System.out.println( "******** Calcul : aléatoires difficile ********" );
+        System.out.println( "***********************************************" );
+        random.randomRandomHard();
+        displayReplayMenu();
     }
 
 // ***********************
@@ -187,8 +242,8 @@ public class app {
         System.out.print("* Nom d'utilisateur : ");
         account.setUsername(sc.nextLine());
 
-        System.out.println("* Mot de passe : ");
-        account.setPassword(sc.nextLine());
+//        System.out.println("* Mot de passe : ");
+//        account.setPassword(sc.nextLine());
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
@@ -221,9 +276,8 @@ public class app {
         SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
         Session session;
         session = sessionFactory.openSession();
-        Query query = session.createQuery("SELECT DISTINCT username, number FROM Player ORDER BY DESC ");
+        Query query = session.createQuery("SELECT DISTINCT number FROM Account ORDER BY number DESC");
         List<String> monTableauDesScores = query.list();
         System.out.println(monTableauDesScores);
-
     }
 }

@@ -87,9 +87,3 @@ public class Account implements Serializable {
     }
 
 }
-
-
-    // Score
-
-
-

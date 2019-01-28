@@ -11,10 +11,6 @@ public class DAOFactory {
 
     }
 
-    public static IDAO<Random, Long> getRandomDAO() throws SQLException {
-        return new DAO<Random, Long>(Random.class);
-    }
-
     public static IDAO<Account, Long> getAccountDAO() throws SQLException {
         return new DAO<Account, Long>(Account.class);
     }
