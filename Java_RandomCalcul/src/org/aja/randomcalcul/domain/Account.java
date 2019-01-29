@@ -15,7 +15,7 @@ public class Account implements Serializable {
 
     protected String username;
     protected String password;
-    protected Integer number;
+    protected Integer number = 0;
 
 // ***********************
 // ***   Constructor   ***

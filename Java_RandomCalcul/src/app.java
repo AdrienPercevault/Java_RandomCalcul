@@ -191,6 +191,16 @@ public class app {
         System.out.println( "************** Calcul : addition **************" );
         System.out.println( "***********************************************" );
         random.randomAddition();
+
+        try {
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            account.setNumber(random.getScore());
+//            dao.findById(account.getId());
+            dao.update(account);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
         displayReplayMenu();
     }
 
@@ -227,6 +237,16 @@ public class app {
         System.out.println( "******** Calcul : aléatoires difficile ********" );
         System.out.println( "***********************************************" );
         random.randomRandomHard();
+
+        try {
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            System.out.println(account.getId());
+            dao.findById(account.getId());
+            dao.update(account);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
         displayReplayMenu();
     }
 

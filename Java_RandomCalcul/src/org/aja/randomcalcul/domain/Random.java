@@ -11,7 +11,7 @@ public class Random implements Serializable {
     private static Account account = new Account();
     private final int NB_QUESTIONS = 10;
 
-    private int score =0;
+    private int score = 0;
     private int result;
     private int response;
 
@@ -133,6 +133,7 @@ public class Random implements Serializable {
                         System.out.println("Bonne réponse");
                         score++;
                         account.setNumber(score);
+
                     }else {
                         System.out.println("Mauvaise réponse");
                         System.out.println("La bonne réponse était : " + result);
@@ -176,7 +177,7 @@ public class Random implements Serializable {
 
                 case 2:
                     System.out.println(nbr1 + " - " + nbr2 + " x " + nbr3);
-                    result = nbr1 + nbr2 * nbr3;
+                    result = nbr1 - nbr2 * nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
                     if (response == result) {

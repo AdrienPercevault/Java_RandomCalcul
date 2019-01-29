@@ -1,6 +1,10 @@
 package org.aja.randomcalcul.dal;
 
+import com.mysql.jdbc.JDBC4ResultSet;
+import org.aja.randomcalcul.domain.Account;
+
 import javax.persistence.*;
+import java.sql.ResultSet;
 import java.util.Set;
 
 public class DAO<T, ID> implements IDAO<T, ID> {
@@ -27,7 +31,18 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     public void update(T object) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.merge(object);
+        object = em.merge(object);
+        em.persist(object);
+        em.getTransaction().commit();
+        em.close();
+    }
+
+    @Override
+    public void updateNumber(Account account) {
+        EntityManager em = emf.createEntityManager();
+        account = em.find(Account.class, 1);
+        em.getTransaction().begin();
+        account.getNumber();
         em.getTransaction().commit();
         em.close();
     }
@@ -44,7 +59,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     @Override
     public T findById(ID id) {
         EntityManager em = emf.createEntityManager();
-        T entity = em.find(type , id);
+        T entity = em.find(type, id);
         return entity;
     }
 
@@ -54,5 +69,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
         Query query = em.createQuery("SELECT number FROM Account a ORDER BY a.number DESC");
         Set<T> set = (Set<T>) query.getResultList();
         return set;
+
     }
+
 }
