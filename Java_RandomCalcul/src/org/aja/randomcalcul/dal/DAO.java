@@ -47,4 +47,12 @@ public class DAO<T, ID> implements IDAO<T, ID> {
         T entity = em.find(type , id);
         return entity;
     }
+
+    @Override
+    public Set<T> getScore() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("SELECT number FROM Account a ORDER BY a.number DESC");
+        Set<T> set = (Set<T>) query.getResultList();
+        return set;
+    }
 }

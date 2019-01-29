@@ -277,16 +277,19 @@ public class app {
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            dao.findAll();
+            System.out.println(dao.getScore());
+            dao.getScore();
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
 
+
+
 //        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 //        Session session;
 //        session = sessionFactory.openSession();
-//        Query query = session.createQuery("SELECT DISTINCT number FROM Account ORDER BY number DESC");
+//        Query query = session.createQuery("FROM Account ORDER BY number DESC");
 //        List<String> monTableauDesScores = query.list();
 //        System.out.println(monTableauDesScores);
     }

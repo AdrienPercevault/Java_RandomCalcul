@@ -12,4 +12,6 @@ public interface IDAO<T, ID> {
     Set<T> findAll();
 
     T findById(ID id);
+
+    Set<T> getScore();
 }
