@@ -1,10 +1,6 @@
 package org.aja.randomcalcul.dal;
 
-import com.sun.org.apache.xerces.internal.impl.XMLEntityManager;
-
 import javax.persistence.*;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Set;
 
 public class DAO<T, ID> implements IDAO<T, ID> {
@@ -19,7 +15,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     }
 
     @Override
-    public void create(T object) throws SQLException {
+    public void create(T object) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(object);
@@ -37,7 +33,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     }
 
     @Override
-    public Set<T> findAll() throws SQLException {
+    public Set<T> findAll() {
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("from" + type.getSimpleName());
         // TypedQuery query = em.createQuery("from" + type.getSimpleName(), type);

@@ -306,6 +306,7 @@ public class Random implements Serializable {
 // ***Getters & Setters***
 // ***********************
 
+    // Score
     public void setScore(int score) {
         this.score = score;
     }
@@ -314,6 +315,7 @@ public class Random implements Serializable {
         return this.score;
     }
 
+    // Result
     public int getResult() {
         return result;
     }
@@ -322,6 +324,7 @@ public class Random implements Serializable {
         this.result = result;
     }
 
+    // Response
     public int getresponse() {
         return response;
     }

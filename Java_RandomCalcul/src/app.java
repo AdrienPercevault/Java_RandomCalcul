@@ -17,6 +17,7 @@ public class app {
 
     private static final Scanner sc = new Scanner(System.in);
     private static Random random = new Random();
+    private static Account account;
 
 // ***********************
 // ***    Main  menu   ***
@@ -45,7 +46,7 @@ public class app {
             System.out.println("***********************************************");
             System.out.println("* Connectez-vous ou inscrivez-vous            *");
             System.out.println("* 1 : Inscription                             *");
-            System.out.println("* 2 : Connexion                               *");
+            System.out.println("* 2 : Connexion (en cour de dev)              *");
             System.out.println("* 3 : Tableau des scores                      *");
             System.out.println("* 4 : Quitter                                 *");
             System.out.println("***********************************************");
@@ -149,7 +150,7 @@ public class app {
             System.out.println("***********************************************");
             System.out.println("****************** REJOUER ? ******************");
             System.out.println("***********************************************");
-            System.out.println("* Voulez vous rejouer une nouvelle partie?    *");
+            System.out.println("* Voulez-vous rejouer une nouvelle partie?    *");
             System.out.println("* 1 : Oui                                     *");
             System.out.println("* 2 : Non                                     *");
             System.out.println("***********************************************");
@@ -234,7 +235,7 @@ public class app {
 // ***********************
 
     public static void registration() {
-        Account account = new Account();
+        account = new Account();
         System.out.println("***********************************************");
         System.out.println("*************** Créer un compte ***************");
         System.out.println("***********************************************");
@@ -249,7 +250,8 @@ public class app {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
             dao.create(account);
             displayDifficultyMenu();
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
     }
@@ -273,11 +275,19 @@ public class app {
         System.out.println("************* Tableau des Scores **************");
         System.out.println("***********************************************");
 
-        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        Session session;
-        session = sessionFactory.openSession();
-        Query query = session.createQuery("SELECT DISTINCT number FROM Account ORDER BY number DESC");
-        List<String> monTableauDesScores = query.list();
-        System.out.println(monTableauDesScores);
+        try {
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            dao.findAll();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+//        SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+//        Session session;
+//        session = sessionFactory.openSession();
+//        Query query = session.createQuery("SELECT DISTINCT number FROM Account ORDER BY number DESC");
+//        List<String> monTableauDesScores = query.list();
+//        System.out.println(monTableauDesScores);
     }
 }

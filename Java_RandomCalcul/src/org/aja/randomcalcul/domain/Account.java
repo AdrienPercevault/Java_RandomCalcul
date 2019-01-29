@@ -15,14 +15,7 @@ public class Account implements Serializable {
 
     protected String username;
     protected String password;
-
-
-
     protected Integer number;
-
-//    @ManyToOne
-//    @JoinColumn(name = "id_score")
-//    protected Score score;
 
 // ***********************
 // ***   Constructor   ***
@@ -78,6 +71,7 @@ public class Account implements Serializable {
         this.password = password;
     }
 
+    // Number
     public Integer getNumber() {
         return number;
     }
