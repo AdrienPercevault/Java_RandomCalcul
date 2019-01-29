@@ -1,17 +1,11 @@
 import java.sql.SQLException;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
-import org.hibernate.Session;
 import org.aja.randomcalcul.dal.DAOFactory;
 import org.aja.randomcalcul.dal.IDAO;
 import org.aja.randomcalcul.domain.Account;
 import org.aja.randomcalcul.domain.Random;
-import org.hibernate.SessionFactory;
-
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 public class app {
 
@@ -210,6 +204,15 @@ public class app {
         System.out.println( "************ Calcul : soustraction ************" );
         System.out.println( "***********************************************" );
         random.randomSubtraction();
+
+        try {
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            account.setNumber(random.getScore());
+            dao.update(account);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
         displayReplayMenu();
     }
 
@@ -219,6 +222,15 @@ public class app {
         System.out.println( "*********** Calcul : multiplication ***********" );
         System.out.println( "***********************************************" );
         random.randomMultiplication();
+
+        try {
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            account.setNumber(random.getScore());
+            dao.update(account);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
         displayReplayMenu();
     }
 
@@ -228,6 +240,15 @@ public class app {
         System.out.println( "********** Calcul : aléatoires facile *********" );
         System.out.println( "***********************************************" );
         random.randomRandomEasy();
+
+        try {
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            account.setNumber(random.getScore());
+            dao.update(account);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
         displayReplayMenu();
     }
 
@@ -240,14 +261,14 @@ public class app {
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            System.out.println(account.getId());
-            dao.findById(account.getId());
+            account.setNumber(random.getScore());
             dao.update(account);
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
         displayReplayMenu();
+
     }
 
 // ***********************
