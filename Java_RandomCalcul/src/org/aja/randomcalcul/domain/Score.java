@@ -62,18 +62,18 @@ public class Score implements Serializable {
 
     public void addAccount(Account account) {
         if (null != account) {
-            if (null != account.getNumber()) {
-                account.getNumber().removeAccount(account);
+            if (null != account.getScore()) {
+                account.getScore().removeAccount(account);
             }
             accounts.add(account);
-            account.setNumber(this);
+            account.setScore(this);
         }
     }
 
     private void removeAccount(Account account) {
         if (null != account) {
             accounts.remove(account);
-            account.setNumber(null);
+            account.setScore(null);
         }
     }
 

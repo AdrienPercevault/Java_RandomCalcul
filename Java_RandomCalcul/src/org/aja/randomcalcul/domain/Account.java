@@ -76,11 +76,11 @@ public class Account implements Serializable {
     }
 
     // Number
-    public Score getNumber() {
+    public Score getScore() {
         return score;
     }
 
-    public void setNumber(Score score) {
+    public void setScore(Score score) {
         this.score = score;
     }
 

@@ -42,7 +42,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
         EntityManager em = emf.createEntityManager();
         account = em.find(Account.class, 1);
         em.getTransaction().begin();
-        account.getNumber();
+        account.getScore();
         em.getTransaction().commit();
         em.close();
     }
@@ -66,7 +66,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     @Override
     public Set<T> getScore() {
         EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("SELECT number FROM Account a ORDER BY a.number DESC");
+        Query query = em.createQuery("SELECT number FROM Score a ORDER BY a.number DESC");
         Set<T> set = (Set<T>) query.getResultList();
         return set;
     }
