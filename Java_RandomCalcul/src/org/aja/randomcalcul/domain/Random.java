@@ -11,9 +11,10 @@ public class Random implements Serializable {
     private static Account account = new Account();
     private final int NB_QUESTIONS = 10;
 
-    private int score = 0;
+    private Score score = new Score();
     private int result;
     private int response;
+    private int tmp;
 
     public Random() {}
 
@@ -32,8 +33,11 @@ public class Random implements Serializable {
             response = sc.nextInt();
             if (response == result) {
                 System.out.println("Bonne réponse");
-                score++;
-                account.setNumber(score);
+                tmp = score.getNumber();
+                System.out.println(tmp);
+                tmp++;
+                System.out.println(tmp);
+                score.setNumber(tmp);
             }else {
                 System.out.println("Mauvaise réponse");
                 System.out.println("La bonne réponse était : " + result);
@@ -53,7 +57,8 @@ public class Random implements Serializable {
             response = sc.nextInt();
             if (response == result) {
                 System.out.println("Bonne réponse");
-                score++;
+                int tmp = score.getNumber();
+                score.setNumber(tmp + 1);
                 account.setNumber(score);
             }else {
                 System.out.println("Mauvaise réponse");
@@ -73,7 +78,8 @@ public class Random implements Serializable {
             response = sc.nextInt();
             if (response == result) {
                 System.out.println("Bonne réponse");
-                score++;
+                int tmp = score.getNumber();
+                score.setNumber(tmp + 1);
                 account.setNumber(score);
             }else {
                 System.out.println("Mauvaise réponse");
@@ -101,7 +107,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     }else {
                         System.out.println("Mauvaise réponse");
@@ -116,7 +123,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     }else {
                         System.out.println("Mauvaise réponse");
@@ -131,7 +139,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
 
                     }else {
@@ -167,7 +176,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -182,7 +192,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -197,7 +208,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -212,7 +224,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -227,7 +240,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -242,7 +256,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -257,7 +272,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -272,7 +288,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -287,7 +304,8 @@ public class Random implements Serializable {
                     response = sc.nextInt();
                     if (response == result) {
                         System.out.println("Bonne réponse");
-                        score++;
+                        int tmp = score.getNumber();
+                        score.setNumber(tmp + 1);
                         account.setNumber(score);
                     } else {
                         System.out.println("Mauvaise réponse");
@@ -297,7 +315,6 @@ public class Random implements Serializable {
 
                 default:
                     break;
-
             }
         }
         System.out.println("Votre score est de : " + score + " sur 10");
@@ -308,12 +325,17 @@ public class Random implements Serializable {
 // ***********************
 
     // Score
-    public void setScore(int score) {
-        this.score = score;
+    public void setNumber(int score) {
+        this.score.setNumber(score);
     }
 
-    public int getScore() {
-        return this.score;
+    // Score
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
     }
 
     // Result

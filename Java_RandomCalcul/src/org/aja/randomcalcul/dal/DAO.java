@@ -69,7 +69,6 @@ public class DAO<T, ID> implements IDAO<T, ID> {
         Query query = em.createQuery("SELECT number FROM Account a ORDER BY a.number DESC");
         Set<T> set = (Set<T>) query.getResultList();
         return set;
-
     }
 
 }

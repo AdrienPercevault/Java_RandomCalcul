@@ -6,12 +6,14 @@ import org.aja.randomcalcul.dal.DAOFactory;
 import org.aja.randomcalcul.dal.IDAO;
 import org.aja.randomcalcul.domain.Account;
 import org.aja.randomcalcul.domain.Random;
+import org.aja.randomcalcul.domain.Score;
 
 public class app {
 
     private static final Scanner sc = new Scanner(System.in);
     private static Random random = new Random();
     private static Account account;
+    private static Score score = new Score();
 
 // ***********************
 // ***    Main  menu   ***
@@ -187,10 +189,8 @@ public class app {
         random.randomAddition();
 
         try {
-            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            account.setNumber(random.getScore());
-//            dao.findById(account.getId());
-            dao.update(account);
+            IDAO<Score, Long> dao = DAOFactory.getScoreDAO();
+            dao.update(score);
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -315,14 +315,19 @@ public class app {
         System.out.println("***********************************************");
         System.out.println("************* Tableau des Scores **************");
         System.out.println("***********************************************");
+        System.out.println(score.getAccounts());
+        for (Account a : score.getAccounts()) {
+            System.out.println("Bonjour la :! ");
+            System.out.println(a.getId() + " \t " + a.getUsername() + " \t ");
+        }
 
-        try {
-            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            dao.findAll();
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+//            dao.findAll();
+//        }
+//        catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
 
 
