@@ -50,7 +50,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     @Override
     public Set<T> findAll() {
         EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("from" + type.getSimpleName());
+        Query query = em.createQuery("from " + type.getSimpleName());
         // TypedQuery query = em.createQuery("from" + type.getSimpleName(), type);
         Set<T> set = (Set<T>) query.getResultList();
         return set;

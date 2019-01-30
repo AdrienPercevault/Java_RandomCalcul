@@ -318,8 +318,7 @@ public class app {
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            System.out.println(dao.getScore());
-            dao.getScore();
+            dao.findAll();
         }
         catch (SQLException e) {
             e.printStackTrace();
