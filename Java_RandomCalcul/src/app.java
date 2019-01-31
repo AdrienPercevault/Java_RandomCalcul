@@ -306,6 +306,7 @@ public class app {
         System.out.println("***********************************************");
         System.out.println("*************** En cour de dev ****************");
         System.out.println("***********************************************");
+        displayMainMenu();
     }
 
 // ***********************

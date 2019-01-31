@@ -20,65 +20,52 @@ public class Random implements Serializable {
 // ***********************
 // *** RandomOperation ***
 // ***********************
+    private void Resultat(int result){
+        System.out.println("Veuillez saisir votre réponse : ");
+        response = sc.nextInt();
+        if (response == result) {
+            System.out.println("Bonne réponse");
+            account.setNumber(score++);
+        }else {
+            System.out.println("Mauvaise réponse");
+            System.out.println("La bonne réponse était : " + result);
+        }
+    }
 
     // ADDITION
     public void randomAddition(){
+        score = 0;
         for(int i=0;i<NB_QUESTIONS;i++){
             int nbr1 = (int)((Math.random()*99)+1);
             int nbr2 = (int)((Math.random()*99)+1);
             System.out.println(nbr1 + " + " + nbr2);
             result = nbr1 + nbr2;
-            System.out.println("Veuillez saisir votre réponse : ");
-            response = sc.nextInt();
-            if (response == result) {
-                System.out.println("Bonne réponse");
-                score++;
-                account.setNumber(score);
-            }else {
-                System.out.println("Mauvaise réponse");
-                System.out.println("La bonne réponse était : " + result);
-            }
+            Resultat(result);
         }
         System.out.println("Votre score est de : " + score + " sur 10");
     }
 
     // SUBTRACTION
     public void randomSubtraction(){
+        score = 0;
         for(int i=0;i<NB_QUESTIONS;i++){
             int nbr1 = (int)((Math.random()*99)+1);
             int nbr2 = (int)((Math.random()*99)+1);
             System.out.println(nbr1 + " - " + nbr2);
             result = nbr1 - nbr2;
-            System.out.println("Veuillez saisir votre réponse : ");
-            response = sc.nextInt();
-            if (response == result) {
-                System.out.println("Bonne réponse");
-                score++;
-                account.setNumber(score);
-            }else {
-                System.out.println("Mauvaise réponse");
-                System.out.println("La bonne réponse était : " + result);
-            }
+            Resultat(result);
         } System.out.println("Votre score est de : " + score + " sur 10");
     }
 
     // MULTIPLICATION
     public void randomMultiplication(){
+        score = 0;
         for(int i=0;i<NB_QUESTIONS;i++){
             int nbr1 = (int)((Math.random()*99)+1);
             int nbr2 = (int)((Math.random()*99)+1);
             System.out.println(nbr1 + " * " + nbr2);
             result = nbr1 * nbr2;
-            System.out.println("Veuillez saisir votre réponse : ");
-            response = sc.nextInt();
-            if (response == result) {
-                System.out.println("Bonne réponse");
-                score++;
-                account.setNumber(score);
-            }else {
-                System.out.println("Mauvaise réponse");
-                System.out.println("La bonne réponse était : " + result);
-            }
+            Resultat(result);
         } System.out.println("Votre score est de : " + score + " sur 10");
     }
 
@@ -87,6 +74,7 @@ public class Random implements Serializable {
 // ***********************
 
     public void randomRandomEasy(){
+        score = 0;
         for (int i = 0; i < NB_QUESTIONS; i++) {
             int nbr1 = (int)((Math.random()*99)+1);
             int nbr2 = (int)((Math.random()*99)+1);
@@ -97,52 +85,22 @@ public class Random implements Serializable {
                 case 1:
                     System.out.println(nbr1 + " - " + nbr2);
                     result = nbr1 - nbr2;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 2:
                     System.out.println(nbr1 + " + " + nbr2);
                     result = nbr1 + nbr2;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 3:
                     System.out.println(nbr1 + " * " + nbr2);
                     result = nbr1 * nbr2;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-
-                    }else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 default:
                     break;
             }
+            Resultat(result);
         }
         System.out.println("Votre score est de : " + score + " sur 10");
     }
@@ -152,6 +110,7 @@ public class Random implements Serializable {
 // ***********************
 
     public void randomRandomHard(){
+        score = 0;
         for (int i = 0; i < NB_QUESTIONS; i++) {
             int nbr1 = (int)((Math.random()*99)+1);
             int nbr2 = (int)((Math.random()*99)+1);
@@ -163,142 +122,54 @@ public class Random implements Serializable {
                 case 1:
                     System.out.println(nbr1 + " - " + nbr2 + " + " + nbr3);
                     result = nbr1 - nbr2 + nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
+
                     break;
 
                 case 2:
                     System.out.println(nbr1 + " - " + nbr2 + " x " + nbr3);
                     result = nbr1 - nbr2 * nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 3:
                     System.out.println(nbr1 + " + " + nbr2 + " + " + nbr3);
                     result = nbr1 + nbr2 + nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 4:
                     System.out.println(nbr1 + " - " + nbr2 + " - " + nbr3);
                     result = nbr1 - nbr2 - nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 5:
                     System.out.println(nbr1 + " x " + nbr2 + " + " + nbr3);
                     result = nbr1 * nbr2 + nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 6:
                     System.out.println(nbr1 + " x " + nbr2 + " - " + nbr3);
                     result = nbr1 * nbr2 - nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 7:
                     System.out.println(nbr1 + " x " + nbr2 + " x " + nbr3);
                     result = nbr1 * nbr2 * nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 8:
                     System.out.println(nbr1 + " + " + nbr2 + " - " + nbr3);
                     result = nbr1 + nbr2 - nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 case 9:
                     System.out.println(nbr1 + " + " + nbr2 + " x " + nbr3);
                     result = nbr1 + nbr2 * nbr3;
-                    System.out.println("Veuillez saisir votre réponse : ");
-                    response = sc.nextInt();
-                    if (response == result) {
-                        System.out.println("Bonne réponse");
-                        score++;
-                        account.setNumber(score);
-                    } else {
-                        System.out.println("Mauvaise réponse");
-                        System.out.println("La bonne réponse était : " + result);
-                    }
                     break;
 
                 default:
                     break;
 
             }
+            Resultat(result);
         }
         System.out.println("Votre score est de : " + score + " sur 10");
     }
