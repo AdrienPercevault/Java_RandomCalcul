@@ -1,19 +1,18 @@
 import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import org.aja.randomcalcul.dal.DAOFactory;
 import org.aja.randomcalcul.dal.IDAO;
 import org.aja.randomcalcul.domain.Account;
 import org.aja.randomcalcul.domain.Random;
-import org.aja.randomcalcul.domain.Score;
 
 public class app {
 
     private static final Scanner sc = new Scanner(System.in);
     private static Random random = new Random();
     private static Account account;
-    private static Score score = new Score();
 
 // ***********************
 // ***    Main  menu   ***
@@ -182,48 +181,21 @@ public class app {
 // ***********************
 
     // ADDITION GAME
-    //Ajout dans la base OK Clé étrangère KO 
     public static void displayAdditionGameMenu() {
         System.out.println( "***********************************************" );
         System.out.println( "************** Calcul : addition **************" );
         System.out.println( "***********************************************" );
-        for(int i=0;i<10;i++){
-            int nbr1 = (int)((Math.random()*99)+1);
-            int nbr2 = (int)((Math.random()*99)+1);
-            System.out.println(nbr1 + " + " + nbr2);
-            int result = nbr1 + nbr2;
-            System.out.println("Veuillez saisir votre réponse : ");
-            int response = sc.nextInt();
-            if (response == result) {
-                System.out.println("Bonne réponse");
-                int tmp = score.getNumber();
-                tmp++;
-                score.setNumber(tmp);
-            }else {
-                System.out.println("Mauvaise réponse");
-                System.out.println("La bonne réponse était : " + result);
-            }
-        }
-        System.out.println("Votre score est de : " + score + " sur 10");
+        random.randomAddition();
+
         try {
-            IDAO<Score, Long> dao = DAOFactory.getScoreDAO();
-            account.setScore(score);
-            dao.update(score);
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            account.setNumber(random.getScore());
+//            dao.findById(account.getId());
+            dao.update(account);
         }
         catch (SQLException e) {
             e.printStackTrace();
         }
-
-        /*random.randomAddition();
-
-        try {
-            IDAO<Score, Long> dao = DAOFactory.getScoreDAO();
-            account.setScore(random.getScore());
-            dao.update(score);
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }*/
         displayReplayMenu();
     }
 
@@ -236,7 +208,7 @@ public class app {
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            account.setScore(random.getScore());
+            account.setNumber(random.getScore());
             dao.update(account);
         }
         catch (SQLException e) {
@@ -254,7 +226,7 @@ public class app {
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            account.setScore(random.getScore());
+            account.setNumber(random.getScore());
             dao.update(account);
         }
         catch (SQLException e) {
@@ -272,7 +244,7 @@ public class app {
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            account.setScore(random.getScore());
+            account.setNumber(random.getScore());
             dao.update(account);
         }
         catch (SQLException e) {
@@ -290,7 +262,7 @@ public class app {
 
         try {
             IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-            account.setScore(random.getScore());
+            account.setNumber(random.getScore());
             dao.update(account);
         }
         catch (SQLException e) {
@@ -344,19 +316,16 @@ public class app {
         System.out.println("***********************************************");
         System.out.println("************* Tableau des Scores **************");
         System.out.println("***********************************************");
-        System.out.println(score.getAccounts());
-        for (Account a : score.getAccounts()) {
-            System.out.println("Bonjour la : ");
-            System.out.println(a.getId() + " \t " + a.getUsername() + " \t ");
-        }
 
-//        try {
-//            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
-//            dao.findAll();
-//        }
-//        catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            IDAO<Account, Long> dao = DAOFactory.getAccountDAO();
+            List<Account> mListAccount = dao.findAllResult();
+            mListAccount.forEach(account -> System.out.println(account.getUsername() + " : " + account.getNumber()));
+            displayMainMenu();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
 

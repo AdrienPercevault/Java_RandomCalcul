@@ -2,6 +2,8 @@ package org.aja.randomcalcul.dal;
 
 import org.aja.randomcalcul.domain.Account;
 
+import java.sql.ResultSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -18,4 +20,6 @@ public interface IDAO<T, ID> {
     T findById(ID id);
 
     Set<T> getScore();
+
+    List findAllResult();
 }

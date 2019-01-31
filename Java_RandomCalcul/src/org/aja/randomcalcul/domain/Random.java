@@ -11,10 +11,9 @@ public class Random implements Serializable {
     private static Account account = new Account();
     private final int NB_QUESTIONS = 10;
 
-    private Score score = new Score();
+    private int score = 0;
     private int result;
     private int response;
-    private int tmp;
 
     public Random() {}
 
@@ -33,9 +32,8 @@ public class Random implements Serializable {
             response = sc.nextInt();
             if (response == result) {
                 System.out.println("Bonne réponse");
-                tmp = score.getNumber();
-                tmp++;
-                score.setNumber(tmp);
+                score++;
+                account.setNumber(score);
             }else {
                 System.out.println("Mauvaise réponse");
                 System.out.println("La bonne réponse était : " + result);
@@ -53,11 +51,10 @@ public class Random implements Serializable {
             result = nbr1 - nbr2;
             System.out.println("Veuillez saisir votre réponse : ");
             response = sc.nextInt();
-            if (response == result){
+            if (response == result) {
                 System.out.println("Bonne réponse");
-                int tmp = score.getNumber();
-                score.setNumber(tmp++);
-                //account.setScore(score);
+                score++;
+                account.setNumber(score);
             }else {
                 System.out.println("Mauvaise réponse");
                 System.out.println("La bonne réponse était : " + result);
@@ -76,9 +73,8 @@ public class Random implements Serializable {
             response = sc.nextInt();
             if (response == result) {
                 System.out.println("Bonne réponse");
-                int tmp = score.getNumber();
-                score.setNumber(tmp + 1);
-                account.setScore(score);
+                score++;
+                account.setNumber(score);
             }else {
                 System.out.println("Mauvaise réponse");
                 System.out.println("La bonne réponse était : " + result);
@@ -103,6 +99,14 @@ public class Random implements Serializable {
                     result = nbr1 - nbr2;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    }else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 2:
@@ -110,6 +114,14 @@ public class Random implements Serializable {
                     result = nbr1 + nbr2;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    }else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 3:
@@ -117,21 +129,19 @@ public class Random implements Serializable {
                     result = nbr1 * nbr2;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
 
+                    }else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 default:
                     break;
-            }
-            if (response == result) {
-                System.out.println("Bonne réponse");
-                int tmp = score.getNumber();
-                score.setNumber(tmp + 1);
-                account.setScore(score);
-
-            }else {
-                System.out.println("Mauvaise réponse");
-                System.out.println("La bonne réponse était : " + result);
             }
         }
         System.out.println("Votre score est de : " + score + " sur 10");
@@ -155,6 +165,14 @@ public class Random implements Serializable {
                     result = nbr1 - nbr2 + nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 2:
@@ -162,6 +180,14 @@ public class Random implements Serializable {
                     result = nbr1 - nbr2 * nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 3:
@@ -169,6 +195,14 @@ public class Random implements Serializable {
                     result = nbr1 + nbr2 + nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 4:
@@ -176,6 +210,14 @@ public class Random implements Serializable {
                     result = nbr1 - nbr2 - nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 5:
@@ -183,6 +225,14 @@ public class Random implements Serializable {
                     result = nbr1 * nbr2 + nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 6:
@@ -190,6 +240,14 @@ public class Random implements Serializable {
                     result = nbr1 * nbr2 - nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 7:
@@ -197,6 +255,14 @@ public class Random implements Serializable {
                     result = nbr1 * nbr2 * nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 8:
@@ -204,6 +270,14 @@ public class Random implements Serializable {
                     result = nbr1 + nbr2 - nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 case 9:
@@ -211,19 +285,19 @@ public class Random implements Serializable {
                     result = nbr1 + nbr2 * nbr3;
                     System.out.println("Veuillez saisir votre réponse : ");
                     response = sc.nextInt();
+                    if (response == result) {
+                        System.out.println("Bonne réponse");
+                        score++;
+                        account.setNumber(score);
+                    } else {
+                        System.out.println("Mauvaise réponse");
+                        System.out.println("La bonne réponse était : " + result);
+                    }
                     break;
 
                 default:
                     break;
-            }
-            if (response == result) {
-                System.out.println("Bonne réponse");
-                int tmp = score.getNumber();
-                score.setNumber(tmp + 1);
-                account.setScore(score);
-            } else {
-                System.out.println("Mauvaise réponse");
-                System.out.println("La bonne réponse était : " + result);
+
             }
         }
         System.out.println("Votre score est de : " + score + " sur 10");
@@ -234,17 +308,12 @@ public class Random implements Serializable {
 // ***********************
 
     // Score
-    public void setNumber(int score) {
-        this.score.setNumber(score);
-    }
-
-    // Score
-    public Score getScore() {
-        return this.score;
-    }
-
-    public void setScore(Score score) {
+    public void setScore(int score) {
         this.score = score;
+    }
+
+    public int getScore() {
+        return this.score;
     }
 
     // Result

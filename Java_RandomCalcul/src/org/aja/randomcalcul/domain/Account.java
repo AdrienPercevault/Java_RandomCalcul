@@ -13,13 +13,9 @@ public class Account implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "score_id")
-    private Score score;
-
     protected String username;
     protected String password;
-//    protected Integer number = 0;
+    protected Integer number = 0;
 
 // ***********************
 // ***   Constructor   ***
@@ -29,19 +25,19 @@ public class Account implements Serializable {
 
     }
 
-    public Account(String username, String password, Score score) {
+    public Account(String username, String password, Integer number) {
         this();
         this.username = username;
         this.password = password;
-        this.score = score;
+        this.number = number;
     }
 
-    public Account(Long id, String username, String password, Score score) {
+    public Account(Long id, String username, String password, Integer number) {
         this();
         this.id = id;
         this.username = username;
         this.password = password;
-        this.score = score;
+        this.number = number;
     }
 
 // ***********************
@@ -76,12 +72,16 @@ public class Account implements Serializable {
     }
 
     // Number
-    public Score getScore() {
-        return score;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

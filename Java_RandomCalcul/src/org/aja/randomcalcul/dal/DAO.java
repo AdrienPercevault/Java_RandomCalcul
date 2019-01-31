@@ -1,10 +1,10 @@
 package org.aja.randomcalcul.dal;
 
-import com.mysql.jdbc.JDBC4ResultSet;
 import org.aja.randomcalcul.domain.Account;
 
 import javax.persistence.*;
 import java.sql.ResultSet;
+import java.util.List;
 import java.util.Set;
 
 public class DAO<T, ID> implements IDAO<T, ID> {
@@ -42,7 +42,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
         EntityManager em = emf.createEntityManager();
         account = em.find(Account.class, 1);
         em.getTransaction().begin();
-        account.getScore();
+        account.getNumber();
         em.getTransaction().commit();
         em.close();
     }
@@ -51,7 +51,7 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     public Set<T> findAll() {
         EntityManager em = emf.createEntityManager();
         Query query = em.createQuery("from " + type.getSimpleName());
-        // TypedQuery query = em.createQuery("from" + type.getSimpleName(), type);
+        // TypedQuery query = em.createQuery("from " + type.getSimpleName(), type);
         Set<T> set = (Set<T>) query.getResultList();
         return set;
     }
@@ -66,9 +66,15 @@ public class DAO<T, ID> implements IDAO<T, ID> {
     @Override
     public Set<T> getScore() {
         EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("SELECT number FROM Score a ORDER BY a.number DESC");
+        Query query = em.createQuery("SELECT number FROM Account a ORDER BY a.number DESC");
         Set<T> set = (Set<T>) query.getResultList();
         return set;
     }
 
+    @Override
+    public List findAllResult() {
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("from " + type.getSimpleName() + " ORDER BY number DESC");
+        return query.getResultList();
+    }
 }
